@@ -129,7 +129,10 @@ const Hero = () => {
             className="flex items-center justify-center gap-3 mb-12"
           >
              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
-             <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-600">BI Analyst & Future Data Engineer</span>
+             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600">
+               "In God we trust // <span className="text-zinc-500">All others must bring data."</span> 
+               <span className="text-zinc-700 ml-3">— W. Edwards Deming</span>
+             </span>
           </motion.div>
 
           <motion.h1 

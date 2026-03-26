@@ -6,7 +6,7 @@ const projects = [
     title: "OPEX Security & Performance Redesign",
     client: "Financial Operations",
     impact: "85% Faster Load Time",
-    description: "Architected a scalable SQL-driven security bridge and optimized semantic models to resolve critical latency and governance issues.",
+    description: "Reduced report latency from 20s to 3s while securing sensitive financial data through a scalable SQL-driven security bridge and optimized semantic models.",
     problem: "Legacy security was non-scalable and inconsistent. Visuals were suffering from ~20s load times.",
     metrics: [
       { label: "Performance", value: "20s → 3s Load" },
@@ -20,7 +20,7 @@ const projects = [
     title: "Inventory WIP Aging Analytics",
     client: "Supply Chain & Ops",
     impact: "Working Capital Optimization",
-    description: "Integrated inventory and production data to distinguish active WIP from non-moving stock across 120+ day aging buckets.",
+    description: "Optimized working capital by integrating disconnected inventory and production data to identify and reduce slow-moving materials across 120+ day aging buckets.",
     problem: "Disconnected data made it impossible to identify slow-moving materials versus items actively tied to production.",
     metrics: [
       { label: "Granularity", value: "Product/Site/Whse" },
@@ -34,7 +34,7 @@ const projects = [
     title: "Manufacturing KPI Ecosystem",
     client: "Production Ops",
     impact: "Single Source of Truth",
-    description: "Developed a centralized performance model combining cost and productivity metrics to accelerate decision-making.",
+    description: "Accelerated executive decision-making by consolidating scattered cost and productivity metrics into a centralized, real-time performance model.",
     problem: "Scattered metrics were causing slow response times and inconsistent reporting across departments.",
     metrics: [
       { label: "Latency", value: "Real-Time Tracking" },
@@ -48,7 +48,7 @@ const projects = [
     title: "Real-Time Call Center Analytics",
     client: "Ops & Marketing",
     impact: "20% Volume Increase",
-    description: "Developed near real-time dashboards using Grafana to monitor call center operations and marketing attribution.",
+    description: "Increased service capacity by 20% through real-time Grafana dashboards that optimized resource allocation and marketing attribution accuracy.",
     problem: "Operations lacked visibility into real-time volume, leading to inefficient resource allocation.",
     metrics: [
       { label: "Engagement", value: "+20% Volume" },

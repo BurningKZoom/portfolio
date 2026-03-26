@@ -4,15 +4,29 @@ import { motion } from 'framer-motion';
 const stack = [
   {
     category: "Visualization",
-    items: ["Power BI (Premium/Pro)", "DAX / Power Query (M)", "Grafana / Tableau", "Storytelling with Data"]
+    items: [
+      "Power BI solutions reducing manual reporting by 8-10 hours weekly",
+      "Enterprise reporting for Finance, Supply Chain, and HR stakeholders",
+      "Real-time Grafana dashboards driving a 20% increase in call volume",
+      "Tableau and Excel modeling for enhanced operational visibility"
+    ]
   },
   {
-    category: "Data Engineering",
-    items: ["SQL (CTEs / Window Functions)", "Databricks / Spark SQL", "Star Schema / Modeling", "ETL Optimization"]
+    category: "Data Architecture & Modeling",
+    items: [
+      "Optimized SQL & Power BI architectures for 25-40% faster refresh",
+      "Star schema design and Databricks engineering for scalable BI",
+      "Advanced SQL (CTEs, Window Functions) for complex transformations"
+    ]
   },
   {
-    category: "Analysis & Logic",
-    items: ["Python / Pandas", "Financial Forecasting", "A/B Testing Analytics", "Business Process Mapping"]
+    category: "Strategy & Enablement",
+    items: [
+      "Operational efficiency enhancements of 20-50% through BI",
+      "Internal training programs increasing report publishing by 10-30%",
+      "Strategic Data Modelling for CEO Office and Sales Management",
+      "Quality assurance and data wrangling across 50+ enterprise reports"
+    ]
   }
 ];
 
