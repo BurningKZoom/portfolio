@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, Variants } from 'framer-motion';
 
 const GlitchText = ({ text }: { text: string }) => {
   const [displayText, setDisplayText] = useState(text);
@@ -11,8 +11,8 @@ const GlitchText = ({ text }: { text: string }) => {
     const scramble = () => {
       let iteration = 0;
       const interval = setInterval(() => {
-        setDisplayText(prev => 
-          text.split("").map((letter, index) => {
+        setDisplayText(() => 
+          text.split("").map((_, index) => {
             if (index < iteration) return text[index];
             return chars[Math.floor(Math.random() * chars.length)];
           }).join("")
@@ -91,8 +91,6 @@ const GlitchText = ({ text }: { text: string }) => {
 };
 
 const Hero = () => {
-  const sentence = ["Clarity", "from"];
-  
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,7 +99,7 @@ const Hero = () => {
     },
   };
 
-  const child = {
+  const child: Variants = {
     visible: {
       opacity: 1,
       y: 0,
