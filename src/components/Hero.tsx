@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 const GlitchText = ({ text }: { text: string }) => {
   const [displayText, setDisplayText] = useState(text);
