@@ -23,7 +23,7 @@ const About = () => {
                 As a BI Analyst with a deep-seated passion for data infrastructure, I don't just build reports—I build ecosystems. My background in Power BI and Databricks has taught me that the most beautiful dashboard is worthless if the underlying data model isn't optimized for performance and reliability.
               </p>
               <p>
-                Currently, I specialize in SQL optimization and complex data modeling, but my trajectory is aimed firmly at <span className="text-white font-bold border-b border-blue-500/50">Data Engineering</span>. I'm moving beyond the "what" of data to master the "how"—building the robust pipelines that make enterprise-scale analytics possible.
+                Currently, I specialize in SQL optimization and complex data modeling. I'm moving beyond the "what" of data to master the "how"—building the robust pipelines that make enterprise-scale analytics possible.
               </p>
             </div>
           </motion.div>

@@ -6,7 +6,6 @@ const stack = [
     category: "Visualization",
     items: [
       "Power BI solutions reducing manual reporting by 8-10 hours weekly",
-      "Enterprise reporting for Finance, Supply Chain, and HR stakeholders",
       "Real-time Grafana dashboards driving a 20% increase in call volume",
       "Tableau and Excel modeling for enhanced operational visibility"
     ]
@@ -24,8 +23,7 @@ const stack = [
     items: [
       "Operational efficiency enhancements of 20-50% through BI",
       "Internal training programs increasing report publishing by 10-30%",
-      "Strategic Data Modelling for CEO Office and Sales Management",
-      "Quality assurance and data wrangling across 50+ enterprise reports"
+      "Strategic Data Modelling for CEO Office and Sales Management"
     ]
   }
 ];

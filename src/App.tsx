@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
+import Contact from './components/Contact'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Skills />
         <Projects />
       </div>
-      {/* Contact section will be added here */}
+      <Contact />
     </main>
   )
 }
