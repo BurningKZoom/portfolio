@@ -4,7 +4,7 @@ import { Target, Zap, Shield } from 'lucide-react';
 
 const About = () => {
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white border-b border-gray-900">
+    <section id="about" className="py-24 bg-[#0a0a0a] text-white border-b border-gray-900 scroll-mt-20">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

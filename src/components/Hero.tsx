@@ -143,7 +143,7 @@ const Hero = () => {
               <motion.span variants={child} className="text-zinc-50">from</motion.span>
               <motion.span
                 variants={child}
-                className="italic font-serif lowercase text-4xl md:text-7xl leading-none"
+                className="italic font-serif normal-case text-4xl md:text-7xl leading-none"
               >
                 <GlitchText text="Chaos." />
               </motion.span>

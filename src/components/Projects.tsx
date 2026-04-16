@@ -14,7 +14,8 @@ const projects = [
       { label: "Governance", value: "Standardized" }
     ],
     tags: ["SQL", "RLS", "DAX", "Performance Tuning"],
-    link: "↗"
+    link: "↗",
+    url: ""
   },
   {
     title: "Inventory WIP Aging Analytics",
@@ -28,7 +29,8 @@ const projects = [
       { label: "Impact", value: "Reduced Holding Cost" }
     ],
     tags: ["Data Modeling", "Inventory Control", "WIP Analysis", "Wrangling"],
-    link: "↗"
+    link: "↗",
+    url: ""
   },
   {
     title: "Manufacturing KPI Ecosystem",
@@ -42,7 +44,8 @@ const projects = [
       { label: "Fragmentation", value: "Eliminated" }
     ],
     tags: ["KPI Design", "BPR", "Process Mapping", "DAX"],
-    link: "↗"
+    link: "↗",
+    url: ""
   },
   {
     title: "Real-Time Call Center Analytics",
@@ -56,7 +59,8 @@ const projects = [
       { label: "Latency", value: "< 1s Update" }
     ],
     tags: ["Grafana", "Real-Time", "Marketing BI", "SQL"],
-    link: "↗"
+    link: "↗",
+    url: ""
   }
 ];
 
@@ -121,9 +125,20 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="mt-8 flex justify-end">
-                      <span className="text-4xl text-zinc-900 group-hover:text-zinc-50 transition-colors duration-700 cursor-pointer">
-                        {project.link}
-                      </span>
+                      {project.url ? (
+                        <a 
+                          href={project.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-4xl text-zinc-900 group-hover:text-zinc-50 transition-colors duration-700 cursor-pointer"
+                        >
+                          {project.link}
+                        </a>
+                      ) : (
+                        <span className="text-4xl text-zinc-900 group-hover:text-zinc-50 transition-colors duration-700 cursor-pointer">
+                          {project.link}
+                        </span>
+                      )}
                     </div>
                   </div>
 
