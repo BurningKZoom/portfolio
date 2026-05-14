@@ -1,69 +1,73 @@
-
 import { motion } from 'framer-motion';
 import { Target, Zap, Shield } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-[#0a0a0a] text-white border-b border-gray-900 scroll-mt-20">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-24 bg-[#09090b] text-white border-b border-zinc-800 scroll-mt-20">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-8 uppercase tracking-widest text-blue-500 text-sm">About Me</h2>
-            <h3 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-white">
-              Driving decisions through <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300 underline decoration-2 underline-offset-8">scalable architecture</span>.
+            <h2 className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-blue-500 mb-8">About // Strategy</h2>
+            <h3 className="text-4xl md:text-6xl font-mono font-extrabold mb-10 leading-[0.9] text-zinc-100 uppercase tracking-tighter">
+              Decision <br /> Infrastructure.
             </h3>
-            <div className="space-y-6 text-gray-300 text-lg leading-relaxed font-medium">
+            <div className="space-y-8 text-zinc-400 text-lg leading-relaxed font-medium max-w-xl">
               <p>
-                As a BI Analyst with a deep-seated passion for data infrastructure, I don't just build reports—I build ecosystems. My background in Power BI and Databricks has taught me that the most beautiful dashboard is worthless if the underlying data model isn't optimized for performance and reliability.
+                As a BI Analyst and Data Infrastructure specialist, I build the ecosystems that power enterprise decisions. I don't just build dashboards—I design the underlying architecture for performance and absolute reliability.
               </p>
               <p>
-                Currently, I specialize in SQL optimization and complex data modeling. I'm moving beyond the "what" of data to master the "how"—building the robust pipelines that make enterprise-scale analytics possible.
+                Specializing in SQL optimization and complex data modeling, I focus on the "how" of data: building the robust pipelines that make strategic analytics possible at scale.
               </p>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-gray-800"
+            transition={{ duration: 0.6 }}
+            className="bg-zinc-950/30 border border-zinc-800 p-10 relative"
           >
-            <h3 className="text-xl font-mono text-blue-400 mb-8 tracking-wider uppercase">My Core Philosophy</h3>
-            <div className="space-y-8">
-              <div className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500">
-                  <Zap size={24} />
+            {/* Structural Accents */}
+            <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-blue-500/30" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-blue-500/30" />
+
+            <h3 className="text-xs font-mono text-zinc-500 mb-12 tracking-[0.3em] uppercase">Core_Philosophies.exe</h3>
+            
+            <div className="space-y-12">
+              <div className="flex gap-8 group">
+                <div className="flex-shrink-0 w-12 h-12 border border-zinc-800 flex items-center justify-center text-blue-500 group-hover:border-blue-500 transition-colors">
+                  <Zap size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1 uppercase tracking-tight">Performance-First</h4>
-                  <p className="text-sm text-gray-400">If a query takes more than 10 seconds, it's a technical debt. I prioritize DAX and SQL optimization in every build.</p>
+                  <h4 className="text-sm font-mono font-bold mb-2 uppercase tracking-widest text-zinc-100">Performance-First</h4>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-mono">If a query takes more than 10 seconds, it's a technical debt. I prioritize DAX and SQL optimization in every build.</p>
                 </div>
               </div>
 
-              <div className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500">
-                  <Target size={24} />
+              <div className="flex gap-8 group">
+                <div className="flex-shrink-0 w-12 h-12 border border-zinc-800 flex items-center justify-center text-blue-500 group-hover:border-blue-500 transition-colors">
+                  <Target size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1 uppercase tracking-tight">Impact &gt; Metrics</h4>
-                  <p className="text-sm text-gray-400">Data is a tool for strategy. I focus on actionable insights that reduce operational costs or unlock new revenue.</p>
+                  <h4 className="text-sm font-mono font-bold mb-2 uppercase tracking-widest text-zinc-100">Impact over Metrics</h4>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-mono">Data is a strategic tool. I focus on actionable insights that reduce costs or unlock new revenue streams.</p>
                 </div>
               </div>
 
-              <div className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-500">
-                  <Shield size={24} />
+              <div className="flex gap-8 group">
+                <div className="flex-shrink-0 w-12 h-12 border border-zinc-800 flex items-center justify-center text-blue-500 group-hover:border-blue-500 transition-colors">
+                  <Shield size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1 uppercase tracking-tight">Data Integrity</h4>
-                  <p className="text-sm text-gray-400">Consistency is non-negotiable. I implement rigorous validation checks at the source to ensure absolute trust.</p>
+                  <h4 className="text-sm font-mono font-bold mb-2 uppercase tracking-widest text-zinc-100">Data Integrity</h4>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-mono">Consistency is non-negotiable. I implement rigorous validation at the source to ensure absolute trust.</p>
                 </div>
               </div>
             </div>

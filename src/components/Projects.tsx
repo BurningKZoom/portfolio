@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 
 const projects = [
@@ -68,47 +67,47 @@ const Projects = () => {
   return (
     <section id="featured" className="py-24 bg-[#09090b] text-zinc-50 border-b border-zinc-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-5xl">
-        <div className="mb-20">
-          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600 mb-4">Featured Case Studies</h2>
-          <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Strategic Impact.</h3>
+        <div className="mb-24">
+          <h2 className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-blue-500 mb-6">Featured Case Studies</h2>
+          <h3 className="text-5xl md:text-7xl font-mono font-extrabold uppercase tracking-tighter text-zinc-100">Strategic Impact.</h3>
         </div>
 
-        <div className="grid grid-cols-1 gap-20">
+        <div className="grid grid-cols-1 gap-24">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="group"
             >
-              <div className="relative border-t border-zinc-800 py-16 px-6 -mx-6 group-hover:bg-zinc-900/30 transition-all duration-500">
-                <div className="flex flex-col lg:flex-row justify-between gap-12">
+              <div className="relative border-t border-zinc-800 pt-16 group-hover:bg-zinc-900/10 transition-all duration-500">
+                <div className="flex flex-col lg:flex-row justify-between gap-16">
                   
                   <div className="flex-1 text-left">
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-6 mb-8">
                       <span className="text-[10px] font-mono text-blue-500 uppercase tracking-widest">{project.client}</span>
-                      <span className="w-1 h-1 bg-zinc-800 rounded-full" />
+                      <span className="w-10 h-[1px] bg-zinc-800" />
                       <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">{project.impact}</span>
                     </div>
-                    <h4 className="text-3xl md:text-5xl font-bold uppercase tracking-tight mb-8 group-hover:text-blue-500 transition-colors">
+                    <h4 className="text-3xl md:text-5xl font-mono font-bold uppercase tracking-tight mb-10 group-hover:text-blue-500 transition-colors">
                       {project.title}
                     </h4>
-                    <div className="space-y-6 mb-10">
+                    <div className="space-y-10 mb-12">
                       <div>
-                        <span className="text-[9px] font-black uppercase tracking-widest text-zinc-600 block mb-2">The Challenge</span>
-                        <p className="text-zinc-400 text-sm leading-relaxed max-w-2xl">{project.problem}</p>
+                        <span className="text-[9px] font-mono font-black uppercase tracking-[0.3em] text-zinc-600 block mb-3">The Challenge</span>
+                        <p className="text-zinc-400 text-sm leading-relaxed max-w-2xl font-medium">{project.problem}</p>
                       </div>
                       <div>
-                        <span className="text-[9px] font-black uppercase tracking-widest text-zinc-600 block mb-2">The Solution</span>
-                        <p className="text-zinc-100 text-lg leading-relaxed max-w-2xl font-normal italic">
-                          "{project.description}"
+                        <span className="text-[9px] font-mono font-black uppercase tracking-[0.3em] text-zinc-600 block mb-3">The Solution</span>
+                        <p className="text-zinc-100 text-lg leading-relaxed max-w-2xl font-normal">
+                          {project.description}
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {project.tags.map(tag => (
-                        <span key={tag} className="text-[9px] font-mono border border-zinc-800 px-3 py-1.5 text-zinc-500 uppercase tracking-[0.2em] group-hover:border-zinc-700 transition-colors">
+                        <span key={tag} className="text-[9px] font-mono border border-zinc-800 px-3 py-1 text-zinc-500 uppercase tracking-widest">
                           {tag}
                         </span>
                       ))}
@@ -116,29 +115,18 @@ const Projects = () => {
                   </div>
 
                   <div className="lg:w-1/3">
-                    <div className="grid grid-cols-1 gap-8 p-8 bg-zinc-950/50 border border-zinc-900 rounded-sm shadow-2xl group-hover:border-blue-500/30 transition-all">
+                    <div className="grid grid-cols-1 gap-0 border border-zinc-800 bg-zinc-950/30 group-hover:border-zinc-700 transition-all">
                       {project.metrics.map((metric, i) => (
-                        <div key={i} className="flex flex-col border-l-2 border-zinc-800 pl-4 group-hover:border-blue-500 transition-colors">
-                          <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-1">{metric.label}</span>
-                          <span className="text-xl font-black text-zinc-50 uppercase">{metric.value}</span>
+                        <div key={i} className={`flex flex-col p-6 ${i !== project.metrics.length - 1 ? 'border-b border-zinc-800' : ''}`}>
+                          <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-2">{metric.label}</span>
+                          <span className="text-xl font-mono font-bold text-zinc-100 uppercase tracking-tight">{metric.value}</span>
                         </div>
                       ))}
                     </div>
                     <div className="mt-8 flex justify-end">
-                      {project.url ? (
-                        <a 
-                          href={project.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-4xl text-zinc-900 group-hover:text-zinc-50 transition-colors duration-700 cursor-pointer"
-                        >
-                          {project.link}
-                        </a>
-                      ) : (
-                        <span className="text-4xl text-zinc-900 group-hover:text-zinc-50 transition-colors duration-700 cursor-pointer">
-                          {project.link}
-                        </span>
-                      )}
+                      <span className="text-4xl font-mono text-zinc-800 group-hover:text-blue-500 transition-colors duration-500">
+                        {project.link}
+                      </span>
                     </div>
                   </div>
 

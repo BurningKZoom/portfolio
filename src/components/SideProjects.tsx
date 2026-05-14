@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 
 const sideProjects = [
@@ -36,28 +35,28 @@ const sideProjects = [
 
 const SideProjects = () => {
   return (
-    <section id="side-projects" className="py-24 bg-[#0a0a0a] text-zinc-50 border-b border-zinc-800 scroll-mt-20">
+    <section id="side-projects" className="py-24 bg-[#09090b] text-zinc-50 border-b border-zinc-800 scroll-mt-20">
       <div className="container mx-auto px-6 max-w-5xl">
-        <div className="mb-20">
-          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-500 mb-4">Laboratory & Experiments</h2>
-          <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Side Projects.</h3>
+        <div className="mb-24">
+          <h2 className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-blue-500 mb-6">Laboratory // Experiments</h2>
+          <h3 className="text-5xl md:text-7xl font-mono font-extrabold uppercase tracking-tighter text-zinc-100">Side Projects.</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-t border-zinc-800">
           {sideProjects.map((project, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="group relative bg-zinc-900/20 border border-zinc-800 p-8 hover:bg-zinc-900/40 transition-all duration-500"
+              className="group relative bg-zinc-950/20 border-r border-b border-zinc-800 p-10 hover:bg-zinc-900/10 transition-all duration-500"
             >
               <div className="flex flex-col h-full">
-                <div className="flex justify-between items-start mb-6">
+                <div className="flex justify-between items-start mb-8">
                   <div>
-                    <span className="text-[10px] font-mono text-blue-500 uppercase tracking-widest block mb-1">{project.client}</span>
+                    <span className="text-[9px] font-mono text-blue-500 uppercase tracking-widest block mb-2">{project.client}</span>
                     <a href={project.url} target="_blank" rel="noopener noreferrer">
-                      <h4 className="text-2xl font-bold uppercase tracking-tight group-hover:text-blue-500 transition-colors cursor-pointer">
+                      <h4 className="text-2xl font-mono font-bold uppercase tracking-tight group-hover:text-blue-500 transition-colors cursor-pointer">
                         {project.title}
                       </h4>
                     </a>
@@ -66,21 +65,21 @@ const SideProjects = () => {
                     href={project.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-2xl text-zinc-700 group-hover:text-zinc-50 transition-colors duration-500"
+                    className="text-3xl font-mono text-zinc-800 group-hover:text-zinc-50 transition-colors duration-500"
                   >
                     {project.link}
                   </a>
                 </div>
 
-                <p className="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">
+                <p className="text-zinc-400 text-sm leading-relaxed mb-10 flex-grow font-medium">
                   {project.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="grid grid-cols-2 gap-6 mb-10">
                   {project.metrics.slice(0, 2).map((metric, i) => (
-                    <div key={i} className="border-l border-zinc-800 pl-3">
-                      <span className="text-[9px] font-mono uppercase text-zinc-500 block">{metric.label}</span>
-                      <span className="text-xs font-bold text-zinc-300 uppercase">{metric.value}</span>
+                    <div key={i} className="border-l border-zinc-800 pl-4">
+                      <span className="text-[9px] font-mono uppercase text-zinc-600 block mb-1 tracking-widest">{metric.label}</span>
+                      <span className="text-xs font-mono font-bold text-zinc-300 uppercase tracking-tight">{metric.value}</span>
                     </div>
                   ))}
                 </div>
@@ -89,8 +88,8 @@ const SideProjects = () => {
                   {project.tags.map(tag => (
                     <span 
                       key={tag} 
-                      className={`text-[8px] font-mono border px-2 py-1 uppercase tracking-wider ${
-                        tag === "Vibe Code" ? "border-blue-500/50 text-blue-400 bg-blue-500/5" : "border-zinc-800 text-zinc-500"
+                      className={`text-[8px] font-mono border px-2 py-1 uppercase tracking-[0.2em] transition-colors ${
+                        tag === "Vibe Code" ? "border-blue-500/50 text-blue-500 bg-blue-500/5" : "border-zinc-800 text-zinc-600"
                       }`}
                     >
                       {tag}

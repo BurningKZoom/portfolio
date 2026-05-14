@@ -7,7 +7,6 @@ const GlitchText = ({ text }: { text: string }) => {
   const chars = "!@#$%^&*()_+{}:<>?|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   
   useEffect(() => {
-    // Scramble logic
     const scramble = () => {
       let iteration = 0;
       const interval = setInterval(() => {
@@ -19,11 +18,10 @@ const GlitchText = ({ text }: { text: string }) => {
         );
 
         if (iteration >= text.length) clearInterval(interval);
-        iteration += 1/2.5; // FAST iteration
-      }, 45); // FAST interval
+        iteration += 1/2.5;
+      }, 45);
     };
 
-    // Glitch trigger loop
     const triggerGlitch = () => {
       setIsGlitching(true);
       scramble();
@@ -38,52 +36,64 @@ const GlitchText = ({ text }: { text: string }) => {
   }, [text]);
 
   return (
-    <span className="relative inline-block group">
-      {/* Ghost text to lock width and prevent 'from' from moving */}
+    <span className="relative inline-block">
       <span className="invisible select-none pointer-events-none" aria-hidden="true">
         {text}
       </span>
 
-      {/* Sliced/Displaced Layers */}
       {isGlitching && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          {/* Red/Cyan Offset (RGB Split) */}
           <motion.span 
-            className="absolute text-red-500 opacity-70 blur-[1px] whitespace-nowrap"
+            className="absolute text-red-500 opacity-60 blur-[2px] whitespace-nowrap scale-110"
             animate={{ 
-              x: [-5, 5, -2, 0],
-              y: [1, -1, 0],
+              x: [-4, 4, -3, 3, 0],
+              y: [2, -2, 1, -1, 0],
+              filter: ["blur(2px)", "blur(4px)", "blur(1px)"],
               clipPath: [
                 "inset(10% 0 70% 0)",
-                "inset(50% 0 10% 0)",
-                "inset(30% 0 30% 0)",
+                "inset(80% 0 5% 0)",
+                "inset(30% 0 40% 0)",
                 "inset(0 0 0 0)"
               ]
             }}
-            transition={{ duration: 0.15, repeat: 2 }}
+            transition={{ duration: 0.1, repeat: 3 }}
           >
             {displayText}
           </motion.span>
           <motion.span 
-            className="absolute text-blue-500 opacity-70 blur-[1px] whitespace-nowrap"
+            className="absolute text-cyan-500 opacity-60 blur-[2px] whitespace-nowrap scale-110"
             animate={{ 
-              x: [5, -5, 2, 0],
-              y: [-1, 1, 0],
+              x: [4, -4, 3, -3, 0],
+              y: [-2, 2, -1, 1, 0],
+              filter: ["blur(2px)", "blur(4px)", "blur(1px)"],
               clipPath: [
                 "inset(70% 0 10% 0)",
-                "inset(10% 0 50% 0)",
-                "inset(40% 0 20% 0)",
+                "inset(5% 0 80% 0)",
+                "inset(40% 0 30% 0)",
                 "inset(0 0 0 0)"
               ]
             }}
-            transition={{ duration: 0.15, repeat: 2 }}
+            transition={{ duration: 0.1, repeat: 3 }}
+          >
+            {displayText}
+          </motion.span>
+
+          {/* Fuzzy/Grainy Overlay */}
+          <motion.span 
+            className="absolute text-zinc-100 opacity-40 blur-[6px] whitespace-nowrap scale-105"
+            animate={{ 
+              opacity: [0.2, 0.5, 0.2],
+              scale: [1.05, 1.1, 1.05],
+            }}
+            transition={{ duration: 0.05, repeat: 5 }}
           >
             {displayText}
           </motion.span>
         </div>
       )}
 
-      {/* Main Scrambling Text - Centered over Ghost */}
-      <span className={`absolute inset-0 flex items-center justify-center z-10 transition-colors duration-100 whitespace-nowrap ${isGlitching ? 'text-zinc-50' : 'text-zinc-700'}`}>
+      <span className={`absolute inset-0 flex items-center justify-center z-10 transition-all duration-75 whitespace-nowrap ${isGlitching ? 'text-blue-400 brightness-150 skew-x-12' : 'text-zinc-100'}`}>
         {displayText}
       </span>
     </span>
@@ -95,87 +105,74 @@ const Hero = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
   };
 
-  const child: Variants = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.8,
-        ease: [0.215, 0.61, 0.355, 1]
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      filter: "blur(8px)",
-    },
+  const item: Variants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#09090b] text-zinc-50 border-b border-zinc-800 px-6 overflow-hidden">
-      <div className="max-w-5xl w-full text-center py-20">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div 
-            variants={child}
-            className="flex items-center justify-center gap-3 mb-12"
-          >
-             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
-             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600">
-               "In God we trust // <span className="text-zinc-500">All others must bring data."</span> 
-               <span className="text-zinc-700 ml-3">— W. Edwards Deming</span>
-             </span>
-          </motion.div>
-
-          <motion.h1 
-            className="text-7xl md:text-[8rem] font-black mb-12 leading-[0.85] tracking-tighter uppercase flex flex-wrap justify-center items-center gap-x-6 md:gap-x-10"
-          >
-            <motion.span variants={child} className="text-zinc-50">Clarity</motion.span>
-            <span className="flex items-center gap-x-6 md:gap-x-10">
-              <motion.span variants={child} className="text-zinc-50">from</motion.span>
-              <motion.span
-                variants={child}
-                className="italic font-serif normal-case text-4xl md:text-7xl leading-none"
-              >
-                <GlitchText text="Chaos." />
-              </motion.span>
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            variants={child}
-            className="text-xl md:text-2xl text-zinc-400 mb-16 max-w-2xl mx-auto leading-relaxed font-normal"
-          >
-            I build high-performance data systems and Power BI ecosystems that transform raw datasets into high-impact strategic assets.
-          </motion.p>
-
-          <motion.div 
-            variants={child}
-            className="flex flex-col md:flex-row gap-6 justify-center items-center"
-          >
-            <a 
-              href="#featured"
-              className="group relative px-12 py-5 bg-zinc-50 text-black font-bold text-[11px] uppercase tracking-[0.3em] hover:bg-white transition-all rounded-none overflow-hidden"
-            >
-              <span className="relative z-10">Featured Work</span>
-              <div className="absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-[95%] transition-transform duration-300" />
-            </a>
-            <a 
-              href="#stack"
-              className="px-12 py-5 border border-zinc-800 text-zinc-50 font-bold text-[11px] uppercase tracking-[0.3em] hover:bg-zinc-900 transition-all rounded-none"
-            >
-              Core Capabilities
-            </a>
-          </motion.div>
+    <section className="relative min-h-[90vh] flex flex-col justify-center items-center bg-[#09090b] pt-20 border-b border-zinc-800 overflow-hidden">
+      {/* Structural Grid Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+           style={{ backgroundImage: 'linear-gradient(#fafafa 1px, transparent 1px), linear-gradient(90deg, #fafafa 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+      
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-6 max-w-5xl z-10 text-center"
+      >
+        <motion.div variants={item} className="mb-8">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-zinc-500">
+            "In God we trust // <span className="text-zinc-600">All others must bring data."</span> 
+            <span className="text-zinc-700 ml-3">— W. Edwards Deming</span>
+          </span>
         </motion.div>
+
+        <motion.h1 variants={item} className="text-6xl md:text-9xl font-mono font-extrabold uppercase tracking-tighter leading-[0.85] text-zinc-100 mb-10">
+          Clarity From <br />
+          <GlitchText text="Chaos." />
+        </motion.h1>
+
+        <motion.p variants={item} className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-14 font-medium leading-relaxed">
+          I build high-performance data systems and Power BI ecosystems that transform raw datasets into high-impact strategic assets.
+        </motion.p>
+
+        <motion.div variants={item} className="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#featured" className="group relative bg-zinc-100 text-zinc-950 font-mono font-bold px-10 py-5 uppercase tracking-widest text-[11px] transition-all hover:bg-blue-500 hover:text-white">
+            View Case Studies
+          </a>
+          <a href="#contact" className="group border border-zinc-800 text-zinc-100 font-mono font-bold px-10 py-5 uppercase tracking-widest text-[11px] transition-all hover:border-zinc-100">
+            Get in Touch
+          </a>
+        </motion.div>
+      </motion.div>
+
+      {/* Hero Metadata/Metrics Strip */}
+      <div className="absolute bottom-0 w-full border-t border-zinc-800 py-8 bg-zinc-950/50 backdrop-blur-sm hidden md:block">
+        <div className="container mx-auto px-6 max-w-5xl flex justify-between items-center">
+          <div className="flex gap-16">
+            <div className="flex flex-col">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-600 mb-1">Status</span>
+              <span className="text-[10px] font-mono text-zinc-300">AVAILABLE_FOR_PROJECTS</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-600 mb-1">Location</span>
+              <span className="text-[10px] font-mono text-zinc-300">REMOTE / GLOBAL</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-600 mb-1">Stack</span>
+              <span className="text-[10px] font-mono text-zinc-300">SQL // BI // DATA_INFRA</span>
+            </div>
+          </div>
+          <div className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
+            System_v2.0.26 // [RE-DESIGNED]
+          </div>
+        </div>
       </div>
     </section>
   );
