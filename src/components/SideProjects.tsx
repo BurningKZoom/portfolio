@@ -13,7 +13,7 @@ const sideProjects = [
       { label: "Import", value: "Wanderlog Links" },
       { label: "Budget", value: "Plan vs Actual" }
     ],
-    tags: ["Product Design", "Next.js", "TypeScript", "Tailwind", "LocalStorage"],
+    tags: ["Vibe Code", "Product Design", "Next.js", "TypeScript", "Tailwind", "LocalStorage"],
     link: "↗",
     url: "https://wanneelog.vercel.app/"
   },
@@ -28,7 +28,7 @@ const sideProjects = [
       { label: "Progression", value: "Hunter XP" },
       { label: "Recovery", value: "Miss Handling" }
     ],
-    tags: ["Product Design", "React", "TypeScript", "Vite", "LocalStorage"],
+    tags: ["Vibe Code", "Product Design", "React", "TypeScript", "Vite", "LocalStorage"],
     link: "↗",
     url: "https://arise-burningkzoom.vercel.app/"
   },
